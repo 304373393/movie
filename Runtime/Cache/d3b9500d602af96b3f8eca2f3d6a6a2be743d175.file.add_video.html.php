@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2016-04-06 23:52:24
+<?php /* Smarty version Smarty-3.1.6, created on 2016-04-08 16:13:04
          compiled from "./Application/Admin/View\Video\add_video.html" */ ?>
 <?php /*%%SmartyHeaderCode:63835704abffd4c285-13934498%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd3b9500d602af96b3f8eca2f3d6a6a2be743d175' => 
     array (
       0 => './Application/Admin/View\\Video\\add_video.html',
-      1 => 1459957941,
+      1 => 1460103180,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_5704abfff24d7')) {function content_5704abfff24d7($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
-   <title>Role</title>
+   <title>添加影视</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <link href="<?php echo @A_CSS;?>
@@ -43,7 +43,22 @@ less.min.js"></script>
     <script type="text/javascript">
     $(function($) {
       $("#tianjia").click( function () {
-       var setext=$(".sele-2").find("option:selected").text();
+       MarStr();
+       })
+       $("#add-url").click(function(){
+       playurl_add();
+       })
+       $("#upimg").click(function() {
+         upfile();
+       });
+
+   });
+   function MatchDemo(restr,matchstr){
+   r = matchstr.match(restr);               // 在字符串 s 中查找匹配。
+   return(r);                     // 返回匹配结果。}
+   }
+   function MarStr(){
+    var setext=$(".sele-2").find("option:selected").text();
        var btntext=$("#type-edit").val();
        if(btntext){
         if(MatchDemo(setext,btntext)){
@@ -57,16 +72,66 @@ less.min.js"></script>
         //setext=setext+" ";
         $("#type-edit").val(setext);
       }
-       //console.log(btntext);
-       });
-   });
-   function MatchDemo(restr,matchstr){
-   r = matchstr.match(restr);               // 在字符串 s 中查找匹配。
-   return(r);                     // 返回匹配结果。}
    }
 
+   function playurl_add(){   //填加播放地址
+    var player=$("#player").find("option:selected").text();
+    var setnum=$("#set").val();
+    var play_url=$(".play-url").val();
+    if(player&&setnum&&play_url)
+    {
+      setext=setnum+"|"+player+"|"+play_url;
+      list_text=$("#text-list2")[0].value;
+      if(list_text==""){
+        $("#text-list2").val(setext);
+      }else{
+        setext=list_text+"\n"+setext;
+        $("#text-list2").val(setext);
+      }
+
+    }else{
+      alert("播放器来源 或 集数 和 播放地址 不能为空");}
+   }
+
+   function upfile(){  //上传文件
+    var data = new FormData();
+    var up_file=$("#exampleInputFile")[0].files;
+    if(up_file.length==0){
+      alert("你还没有选择文件呢！");
+      return;
+    }
+    up_file=up_file[0];
+    if(up_file.type!="image/jpeg"&&up_file.type!="image/gif"&&up_file.type!="image/png"&&up_file.type!="image/jpg")
+    {
+      alert("上传的图片类型仅限 JPG|PNG|GIF");
+      return;
+    }
+    if(up_file.size>2000*1024){
+      alert("上传的文件大小不能超过2M")
+      return;
+    }
+    data.append('name',up_file);
+    $.ajax({
+      url:"<?php echo @__CONTROLLER__;?>
+/up_img",
+      type:"POST",
+      data:data,
+      processData:false,
+      dataType:"json",
+      contentType: false,    //不可缺
+      change:false,
+      success:function(msg){
+        $("#img-edit").val(msg);
+        $("#up-show").css({
+          visibility:"visible",color:"red"
+        });
+      }
+    })
+   }
     </script>
 <body >
+<form role="form" method = 'post' action="<?php echo @__ACTION__;?>
+">
 <div class="container">
 <div class="row top">
 </div>
@@ -117,7 +182,7 @@ less.min.js"></script>
       </div>
       <label for="firstname" class="col-md-1 control-label">时长:</label>
       <div class="col-md-2" id="min-edit">
-        <input type="text" class="form-control"  name="m_regisseur"placeholder="单位:分钟 60">
+        <input type="text" class="form-control"  name="m_duration"placeholder="单位:分钟 60">
       </div>
 </div>
 </div>
@@ -156,14 +221,21 @@ less.min.js"></script>
 <div class="form-group">
       <label for="firstname" class="col-md-2 control-label">图片地址:</label>
       <div class="col-md-3">
-        <input type="text" class="form-control" id="img-edit" name="m_showtime"placeholder="上传获得地址 或 填写网络地址">
+        <input type="text" class="form-control" id="img-edit" name="m_pic"placeholder="上传获得地址 或 填写网络地址">
       </div>
      <div class="col-md-5">
      <div class="form-group">
-     <div class="col-md-4">
+     <div class="col-md-7" >
+     <div class="form-group">
+     <div class="col-md-6">
      <input type="file" id="exampleInputFile">
      </div>
-     <div class="col-md-4 col-md-offset-3">
+     <div class="col-md-6">
+     <p id="up-show">上传成功</p>
+     </div>
+     </div>
+     </div>
+     <div class="col-md-4">
      <button class="btn btn-success" id="upimg" type="button">上传图片</button>
      </div>
      </div>
@@ -174,19 +246,19 @@ less.min.js"></script>
 <div class="form-gorup">
 <label for="firstname" class="col-md-2 control-label">其他选项:</label>
     <div class="col-sm-2">
-    <input type="text" class="form-control"  name="m_showtime"placeholder="顶数量">
+    <input type="text" class="form-control"  name="m_scoreup"placeholder="顶数量">
     </div>
     <div class="col-sm-2">
-    <input type="text" class="form-control"  name="m_showtime"placeholder="踩数量">
+    <input type="text" class="form-control"  name="m_scoredown"placeholder="踩数量">
     </div>
     <div class="col-sm-2">
-    <input type="text" class="form-control "  name="m_showtime"placeholder="总人气">
+    <input type="text" class="form-control "  name="m_hits" placeholder="总人气">
     </div>
-    <div class="col-sm-2">
-    <input type="text" class="form-control"  name="m_showtime"placeholder="月人气">
+    <div class="col-sm-2">  
+    <input type="text" class="form-control"  name="m_monthhits"placeholder="月人气">
     </div>
     <div class="col-sm-1">
-    <input type="text" class="form-control"  name="m_showtime"placeholder="周人气">
+    <input type="text" class="form-control"  name="m_weekhits"placeholder="周人气">
     </div>
 </div>
 </div>
@@ -195,34 +267,49 @@ less.min.js"></script>
 <div class="form-gorup">
 <label for="firstname" class="col-md-2 control-label">视屏简介:</label>
 <div class="col-md-8">
-<textarea class="form-control" id="text-list" rows="3"></textarea>
+<textarea class="form-control" id="text-list" rows="3" name="m_content"></textarea>
 </div>
 </div>
 </div>
 
+<div class="row wrap" id="top8">
+<div class="form-gorup">
+<label for="firstname" class="col-md-2 control-label">播放设置:</label>
+<div class="col-md-2">
+   <select class="form-control" id="player">
+         <option value="">播放来源</option>
+         <option value="新浪">新浪</option>
+         <option value="乐视">乐视</option>
+         <option value="腾讯">腾讯</option>
+         <option value="优酷">优酷</option>
+         <option value="爱奇艺">爱奇艺</option>
+         <option value="其他">其他</option>
+   </select>
+</div>
+   <label for="firstname" class="col-md-1 control-label">集数:</label>
+   <div class="col-md-6">
+   <input type="text" class="form-control " id="set" placeholder="例: 01">
+   </div>
+</div>
+</div>
 <div class="row wrap" id="top7">
 <div class="form-gorup">
 <label for="firstname" class="col-md-2 control-label">播放地址:</label>
-<div class="col-md-3">
-   <select class="form-control">
-         <option value="">播放来源</option>
-         <option value="1">新浪</option>
-         <option value="2">乐视</option>
-         <option value="3">腾讯</option>
-         <option value="4">优酷</option>
-         <option value="5">爱奇艺</option>
-         <option value="5">其他</option>
-   </select>
-</div>
-<label for="firstname" class="col-md-4 control-label">说明:多集情况下, 每行一个地址,不能有空行。</label>
+   <div class="col-md-5">
+   <input type="text" class="form-control play-url" placeholder="例: http://www.le.com/ptv/vplay/21289646.html">
+   </div>
+   <div class="col-md-2">
+    <button type="button" id="add-url" class="btn btn-info">添加地址</button>
+    </div>
 <div class="col-md-8 col-md-offset-2">
-<textarea class="form-control" id="text-list2" rows="3"></textarea>
+<textarea class="form-control" id="text-list2" rows="3" name="m_playurl"></textarea>
 <button type="submit" class="btn btn-primary">添加视屏</button>
 </div>
 </div>
 </div>
 </div> <!-- end <div class="container">
 -->
+</form>
 
 </body>
 

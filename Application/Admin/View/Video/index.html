@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>后台影视首页</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link href="{$smarty.const.A_CSS}bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet/less" type="text/css" href="{$smarty.const.A_CSS}ans.less" />
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+    <script src="{$smarty.const.A_JS}jquery.min.js"></script>
+    <script src="{$smarty.const.A_JS}bootstrap.min.js"></script>
+    <script src="{$smarty.const.A_JS}less.min.js"></script>
+
+    <script type="text/javascript">
+ $(document).ready(function(){
+   console.log($(".table tr:odd td"));
+   $(".table tr:odd").css("background-color","#EAF5F5");
+   $(".table tr:even").css("background-color","#FAFAF0");
+});
+
+    </script>
+<body >
+<div class="container">
+<div class="row video-top">
+</div>
+<div class="row video-wrap">
+<div class="table-responsive">
+  <table class="table table-hover table-condensed">
+    <caption><h4>视屏列表</h4></caption>
+   <thead>
+      <tr>
+         <th>编号</th>
+         <th>名称</th>
+         <th>分类</th>
+         <th>来源</th>
+         <th>人气</th>
+         <th>推荐</th>
+         <th>更新时间</th>
+         <th>操作</th>
+      </tr>
+   </thead>
+   <tbody>
+      {foreach $name as $k => $v}
+      <tr>
+         <td><p>{$v.m_id}</p></td>
+         <td><p>{$v.m_name}</p></td>
+         <td><p>{$v.m_type}</p></td>
+         <td><p>{$v.m_area}</p></td>
+         <td><p>{$v.m_hits}</p></td>
+         <td><p>{$v.m_level}</p></td>
+         <td><p>{$v.m_addtime|date_format:"%Y/%m/%d %H:%M:%S"}</td>
+         <td>
+         <div>
+         <a class="btn btn-success" href="{$smarty.const.__MODULE__}/Video/edit_video/m_id/{$v.m_id}" role="button">修改</a>
+         <a class="btn btn-info" href="#" role="button">删除</a>     
+         </div>
+         </td>
+      </tr>
+      {/foreach}
+   </tbody>
+  </table>
+</div>
+
+</div>
+
+</div><!--end div-->
+</body>
+</html>

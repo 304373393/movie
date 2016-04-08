@@ -4,6 +4,11 @@ body{
 	background-color: #F7F7F7
 }
 
+/*
+ * 对应 Admin/Video/add_video.html less 设置
+ * top1-8 用于划分区域
+ * 每条top对应 一行内容
+ */
 .top{
 	border-bottom:solid 5px @bortop;
 }
@@ -60,19 +65,28 @@ body{
 		}
 	}
 	#top4{
-		padding: 8px;
+		label{
+			margin-top: 7px;
+		}
+		padding: 5px;
 		#img-edit{
+			margin-top: 3px;
 			width: 245px;
 		}
 		#upimg{
 		height: 30px;
 		margin-left:23px;
-		padding-top: 4px;
+		margin-top: 2px;
 		width: 165px;
 		}
 		#exampleInputFile{
-			margin-top: 2px;
-			margin-left: -9px;
+			margin-top: 3px;
+			margin-left: -25px;
+		}
+		#up-show{
+			float:right;
+			padding-top: 5px;
+			visibility:hidden;
 		}
 	}
 
@@ -83,35 +97,44 @@ body{
 			text-align: center;
 		}
 		.col-sm-2{
-			width: 165px;
-		}
-		.text{
-
+			width: 164px;
 		}
 	}
 	#top6{
 		padding: 8px;
 		#text-list{
-			width: 760px;
+			width: 755px;
 			height: 120px;
 		}
 	}
 	#top7{
 		padding: 8px;
 		#text-list2{
-		 width:760px;
+		 width:755px;
 		 height: 150px;
 		 margin-left: 5px;
 		 margin-top: 10px;
-		}
-		.form-control{
-			height: 30px;
-			padding-top: 3px;
 		}
 		.btn-primary{
 			margin-left: 5px;
 			margin-top: 5px;
 			width: 150px;
+		}
+		.btn-info{
+			width: 150px;
+			height: 30px;
+			padding-top: 4px;
+			margin-left: 12px;
+		}
+		.play-url{
+			width: 400px;
+		}
+	}
+	#top8{
+		padding: 8px;
+		.form-control{
+			height: 30px;
+			padding-top: 3px;
 		}
 	}
 
@@ -123,3 +146,27 @@ body{
 .top{
 	margin-top: 50px;
 }
+
+
+/*
+ * 对应Admin/Video/index.html LESS设置
+ * Video-wrap-X 对应划分区域
+ * 每条 wrap-x 对应一块区域
+ */
+
+.video-top{ //头部样式设置
+	height: 50px;
+	border-bottom: solid 5px @bortop;
+}
+.video-wrap{
+	.btn{
+		height: 30px;
+		padding-top: 4px;
+	}
+	p{
+      margin-top:5px;
+      margin-bottom: -5px;
+	}
+}
+
+

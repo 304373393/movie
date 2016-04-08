@@ -18,5 +18,4 @@ class TeleController EXTENDS AdminController{
      public function delete_Tele(){
      	$this->display();
      }
-
 }
