@@ -1,6 +1,7 @@
 <?php
 return array(
 	//'配置项'=>'配置值'
+    'SHOW_PAGE_TRACE'   => true,               //开启系统跟踪
 	'TMPL_ENGINE_TYPE'      =>  'Smarty',     // 默认模板引擎 
 	/* 数据库设置 */
     'DB_TYPE'               =>  'Mysql',     // 数据库类型

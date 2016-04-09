@@ -3,7 +3,7 @@
 <head>
    <title>后台影视首页</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    <link href="{$smarty.const.A_CSS}bootstrap.min.css" rel="stylesheet">
    <link rel="stylesheet/less" type="text/css" href="{$smarty.const.A_CSS}ans.less" />
     <!--[if lt IE 9]>
@@ -26,11 +26,71 @@
 <body >
 <div class="container">
 <div class="row video-top">
+<div class="row" id="nav-top">
+<dl class="dl-horizontal" >
+    <dt>电影筛选</dt>
+    <dd> 
+    <div class="selected">
+      
+    </div> 
+    </dd>
+</dl>
 </div>
+<div class="row">
+    <div class="type-list">
+          <dl class="dl-horizontal" id="af-type">
+          <dt>按类型</dt>
+          <dd>
+                <span><a href="{$smarty.const.__ACTION__}">全部</a></span>
+                {foreach $info as $k => $v}
+                {if $v.type_de==1}
+                <span><a href="{$smarty.const.__ACTION__}/type_id/{$v.type_id}">{$v.type_data}</a></span>
+                {/if}
+                {/foreach}
+           </dd>
+           </dl>
+           <dl class="dl-horizontal">
+           <dt>按地区</dt>
+           <dd>
+                <span><a href="{$smarty.const.__ACTION__}">全部</a></span>
+                {foreach $info as $k => $v}
+                {if $v.type_de==3}
+                <span><a href="{$smarty.const.__ACTION__}/type_id/{$v.type_id}">{$v.type_data}</a></span>
+                {/if}
+                {/foreach}
+           </dd>
+           </dl>
+           <dl class="dl-horizontal">
+           <dt>按年份</dt>
+           <dd>
+                <span><a href="{$smarty.const.__ACTION__}">全部</a></span>
+                {foreach $info as $k => $v}
+                {if $v.type_de==2}
+                <span><a href="{$smarty.const.__ACTION__}/type_id/{$v.type_id}">{$v.type_data}</a></span>
+                {/if}
+                {/foreach}
+           </dd>
+           </dl>
+           <dl class="dl-horizontal">
+           <dt>按明星</dt>
+           <dd>
+                <span><a href="{$smarty.const.__ACTION__}">全部</a></span>
+                {foreach $info as $k => $v}
+                {if $v.type_de==4}
+                <span><a href="{$smarty.const.__ACTION__}/type_id/{$v.type_id}">{$v.type_data}</a></span>
+                {/if}
+                {/foreach}
+            </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+
 <div class="row video-wrap">
 <div class="table-responsive">
   <table class="table table-hover table-condensed">
-    <caption><h4>视屏列表</h4></caption>
+    <!--<caption><h4>视屏列表</h4></caption>-->
    <thead>
       <tr>
          <th>编号</th>
