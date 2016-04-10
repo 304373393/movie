@@ -94,11 +94,40 @@ class VideoController EXTENDS AdminController{
           }
      }
      public function delete_video(){
-          $name="有";
-          $data=self::unicode_encode($name);
-          var_dump($data);
-          $data=self::unicode_decode($data);
-          var_dump($data);
+                  $snoopy=new Snoopy();
+        $url="http://v.qq.com/cover/w/w765ix1otirnoy3.html";
+        $snoopy->proxy_port="80";
+        $snoopy->agent="(Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0)";
+        //$snoopy->referer="http://v.qq.com/movie/";
+        $snoopy->fetch($url);
+        $info=$snoopy->results;
+
+$root_url='/<a_boss="film"href="([^>]+)"target="_blank"class="figure"tabindex="-1"/'; //获取腾讯playurl
+//
+$img_url='/imgitemprop="image"src="([^<>]+)"alt=/'; //图片地址
+
+$title='/\.html"target="_blank"title="([^<>]+)"_hot="/'; //名字
+
+$type='/"><spanclass="tag_inner">([^<>]+)<\/span><\/a><\/li>/'; //标签
+
+$regisseur='/<spanclass="list_lbl">导演.*itemprop="name">([^<>]+)<\/span><\/a><\/li><\/ul><\/div><\/div><\/li>.*<spanclass="list_lbl">主演/';
+
+$actor_temp='/<spanclass="list_lbl">主演.*"target="_blank"class="name_item"title="([^<>]+)"><span.*<spanclass="list_lbl">简介/';
+ 
+$actor='/"target="_blank"class="name_item"title="([^<>]+)"><span/';
+
+$content='/itemprop="abstract">([^<>]+)<\/p>/'; //简介
+
+$text=preg_replace("/[\t\n\r\s]+/","",$info); //去空格去换行
+
+
+ preg_match_all($img_url, $text ,$match);
+
+/* 演员
+ $temp_text=$match[0][0];
+ preg_match_all($actor,$temp_text ,$ret);
+*/
+ var_dump($match);
 
      }
 
