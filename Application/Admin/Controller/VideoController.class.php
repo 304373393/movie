@@ -93,14 +93,16 @@ class VideoController EXTENDS AdminController{
           $this->display();
           }
      }
-     public function delete_video(){
+
+public function delete_video(){
                   $snoopy=new Snoopy();
-        $url="http://v.qq.com/cover/w/w765ix1otirnoy3.html";
+        $url="http://list.iqiyi.com/www/1/----------0---11-3-1-iqiyi--.html";
         $snoopy->proxy_port="80";
         $snoopy->agent="(Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0)";
         //$snoopy->referer="http://v.qq.com/movie/";
         $snoopy->fetch($url);
         $info=$snoopy->results;
+        //var_dump($info);
 
 $root_url='/<a_boss="film"href="([^>]+)"target="_blank"class="figure"tabindex="-1"/'; //获取腾讯playurl
 //
@@ -118,16 +120,88 @@ $actor='/"target="_blank"class="name_item"title="([^<>]+)"><span/';
 
 $content='/itemprop="abstract">([^<>]+)<\/p>/'; //简介
 
+
+
+/*
+ * 爱奇艺采集
+ * http://suggest.video.iqiyi.com/?key=名字&rltnum=显示条数 100   //搜索json 
+ * http://qiqu.iqiyi.com/apis/video/tags/get?entity_id=455141600&limit=5&area=azalea 
+ 标签查询JSON limit 条目数 area=azalea 标签
+
+ http://cmts.iqiyi.com/comment/tvid224/11435363_455141600_hot_2?&albumid=ID
+ 取简介
+ */
+$play_title='/rseat="dsjp7"alt="(?<name>[^>]+)"title="/';
+$play_url='/href="(?<play_url>[^>]+)"class="site-piclist_pic_link"target="_blank">/';
+$play_time='/<spanclass="icon-vInfo">(?<play_time>[^>]+)<\/span>/';
+$play_img='/"src="(?<play_img>[^>]+)"\/><divclass="wrapper-listTitle"><divclass="mod-listTitle">/';
+$play_year='/于([0-9]{4}).*<linkrel="/';
+$play_day='/于([0-9]+).*<linkrel="/';
+$play_name='/name="irTitle"content="([^<>]+)"\/><metaname/';
+$play_cat='/rseat="cat\d">([^<>]+)<\/a>/';
+$play_atcor='/rseat="host\d"target=\'_blank\'title="([^<>]+)">/';
+$play_jianjie='/rseat="jianjie"data-desc-origin=\'([^<>]+)\'>/';
+
 $text=preg_replace("/[\t\n\r\s]+/","",$info); //去空格去换行
 
+preg_match_all($play_title, $text ,$ret);
 
- preg_match_all($img_url, $text ,$match);
+$play_data=array();
 
-/* 演员
- $temp_text=$match[0][0];
- preg_match_all($actor,$temp_text ,$ret);
+$num=0;
+
+for($i=0;$i<count($ret[1]);$i++)
+{
+  $for_url='http://suggest.video.iqiyi.com/?key='.$ret[1][$i].'&rltnum=1';
+  $snoopy->fetch($for_url);
+  usleep (20000);
+  $data=json_decode($snoopy->results,true);
+  if($data[data][0]['aid']>0){
+  $play_data[$num]['play_url']=$data[data][0]['link'];
+  $play_data[$num]['aid']=$data[data][0]['aid'];
+  $play_data[$num]['name']=$data[data][0]['name'];
+  $play_data[$num]['img_url']=$data[data][0]['picture_url'];
+  $play_data[$num]['c_type']=$data[data][0]['cname'];
+  $play_data[$num]['director']=$data[data][0]['director'];
+  $play_data[$num]['actor']=$data[data][0]['main_actor'];
+  $play_data[$num]['year']=$data[data][0]['year'];
+  $play_data[$num]['duration']=$data[data][0]['duration'];
+  $tags='http://qiqu.iqiyi.com/apis/video/tags/get?entity_id='.$data[data][0]['aid'].'&limit=5&area=azalea';
+  $snoopy->fetch($tags);
+  $ret_tags=json_decode($snoopy->results,true);
+  for($p=0;$p<count($ret_tags[data]);$p++)
+  {
+      $play_data[$num]['tags'][$p]=$ret_tags[data][$p]['tag'];
+  }
+  usleep (20000); //50毫秒
+  $hot=$data[data][0]['link'];
+  $snoopy->fetch($hot);
+  $ret_hot=$snoopy->results;
+  $text_jian=preg_replace("/[\t\n\r\s]+/","",$ret_hot); //去空格去换行
+  preg_match_all($play_jianjie, $text_jian ,$ret_jian);
+  $play_data[$num]['jianjie']=$ret_jian[1];
+  usleep (20000);
+  $num=$num+1;
+  }
+}
+var_dump($play_data);
+
+
+/*
+preg_match_all($play_url, $text ,$temp_1);
+preg_match_all($play_time, $text ,$temp_2);
+preg_match_all($play_img, $text ,$temp_3);
+
+$result=array_merge($temp_1,$temp_2);
+
+$play_temp=array_merge($result,$temp_3);
+
+$play_data['play_url']=$play_temp['play_url'];
+$play_data['play_time']=$play_temp['play_time'];
+$play_data['play_img']=$play_temp['play_img'];
+
+var_dump($play_data);
 */
- var_dump($match);
 
      }
 
