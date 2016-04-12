@@ -1,0 +1,19 @@
+[ 2016-04-12T19:23:24+08:00 ] 192.168.1.2 /index.php/Admin/Video/collect
+ERR: Think\Model:whrer方法不存在！
+
+[ 2016-04-12T19:23:59+08:00 ] 192.168.1.2 /index.php/Admin/Video/collect
+ERR: 1054:Unknown column '林永长' in 'where clause'
+ [ SQL语句 ] : SELECT * FROM `ans_type` WHERE ( type_data=林永长 ) LIMIT 1  
+
+[ 2016-04-12T19:27:39+08:00 ] 192.168.1.2 /index.php/Admin/Video/collect
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\'林永长\' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `ans_type` WHERE ( type_data=\'林永长\' ) LIMIT 1  
+
+[ 2016-04-12T22:01:49+08:00 ] 192.168.1.2 /index.php/Admin/Video/collect
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Bill' Connor' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `ans_type` WHERE ( type_data='William 'Bill' Connor' ) LIMIT 1  
+
+[ 2016-04-12T22:08:14+08:00 ] 192.168.1.2 /index.php/Admin/Video/collect
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Bill' Connor' ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `ans_type` WHERE ( type_data='William 'Bill' Connor' ) LIMIT 1  
+

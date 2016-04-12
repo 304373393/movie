@@ -93,10 +93,38 @@ class VideoController EXTENDS AdminController{
           $this->display();
           }
      }
+//采集
+public function collect(){
+  $url="http://list.iqiyi.com/www/1/----------0---11-2-1-iqiyi--.html";
+  $User=M('movie');
+  $num=0;
+  $updata=0;
+  $error=0;
+  for($u=1;$u<2;$u++)
+  {
+  $url="http://list.iqiyi.com/www/1/1115----------0---11-$u-1-iqiyi--.html";
+  $info=self::get_data($url);
+  for($i=0;$i<count($info);$i++)
+  {
+  $info[$i]['m_addtime']=time();
+  $pid=$info[$i]['m_pid'];
+  $ret_sql=$User->where("m_pid='$pid'")->find();
+  if($ret_sql==0)
+  {
+  $User->create($info[$i]);
+  $ret_sql=$User->add();
+  if($ret_sql){$num++;}else{$error++;}
+  }else{$updata++;}
+  } 
+  }
 
-public function delete_video(){
-                  $snoopy=new Snoopy();
-        $url="http://list.iqiyi.com/www/1/----------0---11-3-1-iqiyi--.html";
+  echo "采集完毕...成功的记录条数: $num 已存在的记录数: $updata 失败条数 $error";
+}
+
+public function get_data($url){
+        $User=M('type');
+        $snoopy=new Snoopy();
+        //$url="http://list.iqiyi.com/www/1/----------0---11-3-1-iqiyi--.html";
         $snoopy->proxy_port="80";
         $snoopy->agent="(Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0)";
         //$snoopy->referer="http://v.qq.com/movie/";
@@ -120,8 +148,6 @@ $actor='/"target="_blank"class="name_item"title="([^<>]+)"><span/';
 
 $content='/itemprop="abstract">([^<>]+)<\/p>/'; //简介
 
-
-
 /*
  * 爱奇艺采集
  * http://suggest.video.iqiyi.com/?key=名字&rltnum=显示条数 100   //搜索json 
@@ -130,6 +156,12 @@ $content='/itemprop="abstract">([^<>]+)<\/p>/'; //简介
 
  http://cmts.iqiyi.com/comment/tvid224/11435363_455141600_hot_2?&albumid=ID
  取简介
+
+http://score.video.iqiyi.com/beaver-api/get_sns_score?qipu_ids=461359600&appid=0
+获取评分 $ppid必填任意数
+
+http://up.video.iqiyi.com/ugc-updown/quud.do?dataid=455141600&type=2
+顶踩数量 type 1为全网 2为本站
  */
 $play_title='/rseat="dsjp7"alt="(?<name>[^>]+)"title="/';
 $play_url='/href="(?<play_url>[^>]+)"class="site-piclist_pic_link"target="_blank">/';
@@ -141,69 +173,155 @@ $play_name='/name="irTitle"content="([^<>]+)"\/><metaname/';
 $play_cat='/rseat="cat\d">([^<>]+)<\/a>/';
 $play_atcor='/rseat="host\d"target=\'_blank\'title="([^<>]+)">/';
 $play_jianjie='/rseat="jianjie"data-desc-origin=\'([^<>]+)\'>/';
+$play_tvid='/data-qidanadd-tvid="(?<tvid>[0-9]+)"data-qidanadd-vip/';
+$play_area='/id=\'thirdPartyTagList\'>([^<>]+)<\/a>/';
 
 $text=preg_replace("/[\t\n\r\s]+/","",$info); //去空格去换行
 
-preg_match_all($play_title, $text ,$ret);
+preg_match_all($play_title, $text ,$ret_title);
+preg_match_all($play_tvid, $text ,$ret_tvid);
+
+$ret=array_merge($ret_tvid,$ret_title);
 
 $play_data=array();
+$play_process=array();
 
 $num=0;
 
-for($i=0;$i<count($ret[1]);$i++)
+for($i=0;$i<count($ret['name']);$i++)
 {
-  $for_url='http://suggest.video.iqiyi.com/?key='.$ret[1][$i].'&rltnum=1';
+  $for_url='http://suggest.video.iqiyi.com/?key='.$ret['name'][$i].'&rltnum=1';
   $snoopy->fetch($for_url);
   usleep (20000);
   $data=json_decode($snoopy->results,true);
-  if($data[data][0]['aid']>0){
-  $play_data[$num]['play_url']=$data[data][0]['link'];
-  $play_data[$num]['aid']=$data[data][0]['aid'];
-  $play_data[$num]['name']=$data[data][0]['name'];
-  $play_data[$num]['img_url']=$data[data][0]['picture_url'];
-  $play_data[$num]['c_type']=$data[data][0]['cname'];
-  $play_data[$num]['director']=$data[data][0]['director'];
-  $play_data[$num]['actor']=$data[data][0]['main_actor'];
-  $play_data[$num]['year']=$data[data][0]['year'];
-  $play_data[$num]['duration']=$data[data][0]['duration'];
-  $tags='http://qiqu.iqiyi.com/apis/video/tags/get?entity_id='.$data[data][0]['aid'].'&limit=5&area=azalea';
+
+  if($data['data'][0]['aid']>0){
+
+  if($data['data'][0]['cname']=="电影"){ //电影或者电视剧
+    $play_data[$num]['m_playurl']="01|爱奇艺|".$data['data'][0]['link'];
+  }
+  else{
+    $play_process[$num]['play_url']=$data['data'][0]['link'];
+  }
+
+  $play_data[$num]['m_pid']=$data['data'][0]['aid'];
+  $play_data[$num]['m_name']=$data['data'][0]['name'];
+  $play_data[$num]['m_pic']=$data['data'][0]['picture_url'];
+  $play_process[$num]['c_type']=$data['data'][0]['cname'];
+
+  if(isset($data['data'][0]['director']))
+  {
+  for($h=0;$h<count($data['data'][0]['director']);$h++)
+  {
+    $temp=$data['data'][0]['director'][$h];
+    $temp=preg_replace("/[\']+/","",$temp);
+    if($temp!="")
+    {
+      $ret_sql=$User->where("type_data='$temp'")->find();
+      if($ret_sql==0){
+        $sql_data['type_data']=$temp;
+        $sql_data['type_de']=5;
+        $sql_data['type_name']="m_regisseur";
+        $User->create($sql_data);
+        $User->add();
+      }
+    }
+    if($h==0) //把多个导演组成如下格式: 导演1 导演2
+    {
+      $director_data=$temp;
+    }
+    else{
+      $director_data=$director_data." ".$temp;
+    }
+  }
+  $director_data=self::set_enstr($director_data);
+  $play_data[$num]['m_regisseur']=$director_data;
+  }
+
+  if(isset($data['data'][0]['main_actor']))
+  {
+  for($h=0;$h<count($data['data'][0]['main_actor']);$h++)
+  {
+    $temp=$data['data'][0]['main_actor'][$h];
+    $temp=preg_replace("/[\']+/","",$temp);
+    if($temp!="")
+    {
+      $ret_sql=$User->where("type_data='$temp'")->find();
+      if($ret_sql==0){
+        $sql_data['type_data']=$temp;
+        $sql_data['type_de']=4;
+        $sql_data['type_name']="m_actor";
+        $User->create($sql_data);
+        $User->add();
+      }
+    }
+    if($h==0) //把多个导演组成如下格式: 导演1 导演2
+    {
+      $actor_data=$temp;
+    }
+    else{
+      $actor_data=$actor_data." ".$temp;
+    }
+  }
+
+  $actor_data=self::set_enstr($actor_data);
+  $play_data[$num]['m_actor']=$actor_data;
+  }
+
+  $play_data[$num]['m_year']=$data['data'][0]['year'];
+  $play_data[$num]['m_duration']=$data['data'][0]['duration'];
+  $tags='http://qiqu.iqiyi.com/apis/video/tags/get?entity_id='.$play_data[$num]['m_pid'].'&limit=5&area=azalea';
   $snoopy->fetch($tags);
   $ret_tags=json_decode($snoopy->results,true);
-  for($p=0;$p<count($ret_tags[data]);$p++)
+
+  if(isset($ret_tags['data']))
   {
-      $play_data[$num]['tags'][$p]=$ret_tags[data][$p]['tag'];
+  for($p=0;$p<count($ret_tags['data']);$p++)
+  {
+      $temp=$ret_tags['data'][$p]['tag'];
+      $ret_sql=$User->where("type_data='$temp'")->find();
+      if($ret_sql==0){
+        $sql_data['type_data']=$temp;
+        $sql_data['type_de']=1;
+        $sql_data['type_name']="m_type";
+        $User->create($sql_data);
+        $User->add();
+      }
+      if($p==0){
+        $tags_data=$temp;
+      }else{
+        $tags_data=$tags_data." ".$temp;
+      }
   }
+  $tags_data=self::set_enstr($tags_data);
+  $play_data[$num]['m_type']=$tags_data;
+  }
+
   usleep (20000); //50毫秒
-  $hot=$data[data][0]['link'];
+  $hot=$data['data'][0]['link'];
   $snoopy->fetch($hot);
   $ret_hot=$snoopy->results;
   $text_jian=preg_replace("/[\t\n\r\s]+/","",$ret_hot); //去空格去换行
   preg_match_all($play_jianjie, $text_jian ,$ret_jian);
-  $play_data[$num]['jianjie']=$ret_jian[1];
+  $play_data[$num]['m_content']=$ret_jian[1][0];
+  $play_data[$num]['m_area']=$data['data'][0]['region'];
+  $up_url='http://up.video.iqiyi.com/ugc-updown/quud.do?dataid='.$ret['tvid'][$i].'&type=2';
+  $snoopy->fetch($up_url);
+  $ret_up=$snoopy->results;
+  //$ret_up=json_decode($snoopy->results,true);
+  $ret_up=preg_replace("/try\{null\(/","",$ret_up);
+  $ret_up=preg_replace("/\)\}catch\(e\)\{\}/","",$ret_up);
+  $up_data=json_decode($ret_up,true);
+  $play_data[$num]['m_score']=$up_data['data']['score'];
+  $play_data[$num]['m_scoreup']=$up_data['data']['up'];
+  $play_data[$num]['m_scoredown']=$up_data['data']['down'];
+  $play_data[$num]['m_voters']=$up_data['data']['voters'];
   usleep (20000);
   $num=$num+1;
   }
 }
-var_dump($play_data);
-
-
-/*
-preg_match_all($play_url, $text ,$temp_1);
-preg_match_all($play_time, $text ,$temp_2);
-preg_match_all($play_img, $text ,$temp_3);
-
-$result=array_merge($temp_1,$temp_2);
-
-$play_temp=array_merge($result,$temp_3);
-
-$play_data['play_url']=$play_temp['play_url'];
-$play_data['play_time']=$play_temp['play_time'];
-$play_data['play_img']=$play_temp['play_img'];
-
-var_dump($play_data);
-*/
-
-     }
+return $play_data;
+}
 
      public function up_img(){
           if(!empty($_FILES))
