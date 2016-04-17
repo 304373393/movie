@@ -28,4 +28,5 @@ define('SITE','http://www.movie.com/');
 define('A_CSS',SITE.'Public/css/');
 define('A_JS',SITE.'Public/js/');
 define('A_IMG',SITE.'Public/Admin/img/');
+define('H_IMG',SITE.'Public/IMG/');
 require './ThinkPHP/ThinkPHP.php';# Ansvod

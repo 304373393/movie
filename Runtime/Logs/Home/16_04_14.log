@@ -1,0 +1,12 @@
+[ 2016-04-14T21:44:08+08:00 ] 192.168.1.2 /
+ERR: Syntax Error in template "./Application/Home/View\Index\index.html"  on line 20 "this.css({&quot;color&quot;:&quot;#fffff&quot;,"  - Unexpected ":", expected one of: "}" , " "
+
+[ 2016-04-14T21:53:11+08:00 ] 192.168.1.2 /
+ERR: Syntax Error in template "./Application/Home/View\Index\index.html"  on line 24 "else{a-list=$(this);}"  - Unexpected "=", expected one of: "}" , " "
+
+[ 2016-04-14T21:57:18+08:00 ] 192.168.1.2 /
+ERR: Syntax Error in template "./Application/Home/View\Index\index.html"  on line 26 "$(this).css({&quot;background&quot;:&quot;#ffffff&quot;});"  - Unexpected ":", expected one of: "}" , " "
+
+[ 2016-04-14T23:09:46+08:00 ] 192.168.1.2 /
+ERR: Syntax Error in template "./Application/Home/View\Index\index.html"  on line 31 "ret_ul[i].css({&quot;display&quot;:&quot;none&quot;});"  - Unexpected ":", expected one of: "}" , " "
+

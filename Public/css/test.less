@@ -1,0 +1,57 @@
+body{
+	background-color: #999;
+}
+.hot-top1{
+	background-color: #FFF;
+	margin-top: 150px;
+	margin-left: 400px;
+	height: 300px;
+	width: 200px;
+	position:relative;
+	.tv_name{
+		z-index: 2;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 22px;
+		line-height: 22px;
+		background:rgba(0,0,0,0.6);
+		zoom: 1;
+		text-indent: 10px;
+		color: #fff;
+		overflow: hidden;
+	}
+	.ico{
+		display: none;
+		_display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 44px;
+		height: 44px;
+		_width: 0;
+		_height: 0;
+		background-image:url(http://www.movie.com/Public/IMG/play.png);
+		background-repeat:no-repeat; //不平铺
+		background-position:center center; //居中
+		background-color:rgba(0,0,0,0.4);
+	}
+
+	a{
+		display:block;
+		position: relative;
+		img{
+			width: 100%;
+			height: 250px;
+		}
+	}
+	a:hover{
+		.ico{
+		display: block;
+		width: 100%;
+		height: 100%;
+		}
+	}
+
+}

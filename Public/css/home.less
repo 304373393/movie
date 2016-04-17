@@ -1,0 +1,540 @@
+body{
+	background-color:#EDEDED;
+    font-family:"Microsoft Yahei",Arial;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, select, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+li{
+	list-style-type:none;
+}
+.container{
+a:link{text-decoration:none;color:bule}
+a:hover{color:red}
+}
+
+//图片效果CSS 
+.ico { //播放按扭效果
+        display: none;_display: block;
+        position: absolute;top: 50%;left: 50%;
+        margin: -22px 0 0 -22px;
+        width: 44px;height: 44px;
+        _width: 0;_height: 0;
+        background-image:url(http://www.movie.com/Public/IMG/play.png);
+        background-repeat:no-repeat;
+        background-position:center center;
+}
+.ico{ //IE6效果
+  _background: none;filter: 
+  progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="http://www.movie.com/Public/IMG/play.png");
+}
+
+.tv_name{ //图片渐变效果
+       z-index:2; position:absolute; 
+       bottom:0; left:0; width:100%; 
+       height:30px;
+       background-image:url(http://www.movie.com/Public/IMG/bg.png);
+	   background-color: transparent;
+	   background-repeat:repeat-x;
+}
+.hot_name{ //hot文字效果
+       z-index:2; position:absolute; 
+       bottom:0; left:0; width:100%; 
+       height:22px; line-height:22px;
+       //下面IE8以下可能会重叠效果filter
+       //filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000); 
+       background: rgba(0,0,0,0.6); 
+       zoom: 1; text-indent:10px; 
+       color:#fff;overflow: hidden;
+}
+.bg-img{ //透明背景效果
+  display: none;
+  _display: block;
+  position: absolute;
+  top: 0;left: 0;
+  width: 100%;height: 100%;
+  _width: 0;_height: 0;
+  background-color: #000;
+  filter: alpha(opacity=30);
+  opacity: 0.3;
+}
+
+.bulk,.bulk_movie-area{
+	position:relative;
+	display: block;
+}
+.bulk:hover,.bulk_movie-area:hover{
+	.ico{
+		 display: block;
+		 _height: 44px;
+		 _width: 44px;
+	}
+	.bg-img{
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+//图片下方文字
+		.tt_name{
+			display: block;
+			padding-top: 5px;
+			padding-left: 10px;
+			line-height: 22px;
+		}
+		.actor_name{
+			padding-left: 10px;
+		}
+//
+.top{
+	height: 110px;
+	#logo{
+	margin-top: 20px;
+	}
+	.tx3{
+		font-size: 40px;
+		margin-left: 15px;
+	}
+	.search{
+		margin-left: -50px;
+		margin-top: 25px;
+	}
+	.form-control{
+		width: 450px;
+		height: 40px;
+	}
+	.btn{
+		height: 40px;
+		width: 120px;
+	}
+	ul{
+		font-size: 13px;
+		list-style:none;
+		margin-top: 5px;
+		margin-left: -62px;
+	} 
+	li{
+		float: left;
+		margin-left: 20px;
+	}
+	#search{
+		font-size: 20px;
+	}
+}
+//导航区
+.navbar{
+	height: 50px;
+	background-color:#211F3B;
+	color:#FFF;
+	ul{
+		font-size: 20px;
+		margin-left: 140px;
+	}
+	li{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+//导航区结束
+.left-wrap{
+
+}
+.right-wrap{
+	background-color: #FFF;
+}
+//轮播图片区
+.turn-pic{
+ margin: 0 auto;
+ height: 350px;
+ width: 845px;
+ position: relative;
+ overflow: hidden;
+
+  .turn-bot{
+	 position: absolute;
+	 bottom: -15px;
+	 padding-top: 15px;
+	 z-index: 1;
+ 	.turn-click{
+ 		position: relative;
+ 		float: left;
+		display: block;
+ 		height: 50px;
+ 		width: 110px;
+ 		opacity: 0.5;
+ 		border: solid 2px #333;
+ 		overflow: hidden;
+ 		cursor: pointer;
+ 		span{
+ 			height: 50px;
+ 		 	width: 110px;
+ 			position: absolute;
+ 			left: 0px;
+ 			top: 0px;
+ 		}
+ 		}
+	 }
+ 	.trun-a{
+ 		position: absolute;
+		display: block;
+		margin: 0 auto;
+ 		img{
+ 			height: 100%;
+ 			width: 100%;
+ 		}
+ 	}
+}
+//轮播图片结束
+
+.ranking-list{
+	height: 378px;
+}
+
+.hot-pints{
+	.hot-title{
+		height: 50px;
+	}
+	.hot-pic{
+		height: 240px;
+		width: 438px;
+
+	}
+	.hot-bot-pic{
+		height: 120px;
+		width: 210px;
+		margin-top: 15px;
+		margin-left: 15px;
+		img{
+			width: 210px;
+			height: 120px;
+		}
+	}
+	.bot-pic1{
+     margin-top: -120px;
+     margin-left: 242px;	
+	}
+	.hot-right-top{
+		height: 240px;
+		width: 190px;
+		img{
+			width: 100%;
+			height: 240px;
+		}
+	}
+	.hot-right-pic{
+		margin-top: 15px;
+		height: 120px;
+		width: 190px;
+		img{
+			width: 100%;
+			height: 120px;
+		}
+     }
+
+}
+.movie-area{
+	.movie-title{
+		margin-top: 20px;
+		height: 40px;
+		.area-list{
+			margin-top: 5px;
+			a{
+				margin-left: 10px;
+				font-size: 20px;
+			}
+		}
+		.tt{
+			margin-top: -5px;
+			font-size: 30px;
+		}
+		.gd{
+			margin-top: 5px;
+			font-size: 20px;
+		}
+	}
+	.movie-pic{
+		position: relative;
+		height: 310px;
+		margin-top: 20px;
+		background-color: #FFF;
+		    img{
+			height: 260px;
+			width: 190px;
+		}
+	}
+}
+
+.tv-area{
+	.tv-title{
+		height: 50px;
+		border: solid 1px blue;
+			}
+	.tv-pic{
+		position: relative;
+		height: 250px;
+		width: 200px;
+		margin-top: 20px;
+        background-color: #fff;
+		img{
+			height: 150px;
+			width: 200px;
+			}
+		}
+}
+.cartoon-area{
+	.cartoon-title{
+		height: 50px;
+		border: solid 1px blue;
+	}
+	.cartoon-pic{
+		position: relative;
+		height: 300px;
+		width: 200px;
+		margin-top: 20px;
+		background-color: #FFF;
+		img{
+			height: 250px;
+			width: 200px;
+		}
+	}
+}
+
+.variety-area{
+	.variety-title{
+		height: 50px;
+		border: solid 1px blue;
+	}
+	.variety-pic{
+		position: relative;
+		height: 200px;
+		margin-top: 20px;
+		width: 200px;
+		background-color: #FFF;
+		img{
+			height: 150px;
+			width: 200px;
+		}
+	}
+}
+.topic{
+	height: 250px;
+	border: solid 1px red;
+}
+
+.ranking-list,.site-list{
+	background-color: #fff;
+	color: #2a3b4b;
+	padding-top: 28px;
+	.table-list{
+		position:relative;
+		margin: 0 auto;
+		//width: 291px;
+		padding-bottom: 5px;
+		.table{
+			overflow: hidden;
+			position: absolute;
+			z-index: 1;
+			width: 320px;
+			top: -28px;
+			height: 35px;
+			line-height: 35px;
+			font-size: 16px;
+			background-color: #fff;
+			.list-on,.site-on{
+				color: #fff;
+				background-color: #6ccdee;
+			}
+			a{
+				float: left;
+				text-align: center;
+				width: 20%;
+				overflow: hidden;
+			}
+			a,a:hover, a:visited,a:focus,a:active {
+    		outline: 0;
+			}
+			
+		}
+		.table-ul{
+			font-size: 15px;
+			padding-top: 15px;
+			padding-left: 15px;
+			.right-show{
+					float: right;
+					margin-right: 12px;
+				}
+			li{
+				ist-style-type:none;
+				font-size: 14px;
+				height: 16px;
+				line-height: 16px;
+				overflow: hidden;
+				color: #7d7d7d;
+				margin-bottom: 15px;
+				font-size: 14px;
+				a{
+					color: #7d7d7d;
+				}
+				a:hover{
+					color:#6CCDEE;
+				}
+			}
+			.num{
+				padding: 5px;
+				color:#FFF;
+				background-color: #B255A0;
+			}
+			.num-1{
+				padding: 5px;
+				background-color: #A9D3FF;
+			}
+			.tab-a{
+				padding-left: 20px;
+			}
+		}
+	}
+}
+.ranking-bot{
+	margin-top: -40px;
+	height: 50px;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+.right-title{
+	height: 60px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: -12px;
+	.h3{
+		position: absolute;
+		font-family: "\5FAE\8F6F\96C5\9ED1",Arial,sans-serif;
+		height: 32px;
+		bottom: 0;
+		line-height: 32px;
+		color: #2d3e50;
+		font-size: 18px;
+		padding-right: 20px;
+		background-color: #fff; //设置背景后可以覆盖其他元素
+	}
+	a{
+		line-height: 25px;
+	}
+	.right-a{
+		right: 0px;
+		top:22px;
+		position: absolute;
+		font-size: 15px;
+		background-color: #6BCDED;
+		color:#FFF;
+		border-radius: 14px;
+		padding-right: 12px;
+		text-indent: 12px;
+	}
+	.right-a:hover{
+		color:#6BCDED;
+		background-color:#2D3E50;
+	}
+	.hx{
+		width: 100%;height: 2px;left: 0;
+		bottom: 22px;position: absolute;
+		background-color: #6ccdee;
+		text-indent:-999em;text-align:left;
+		overflow:hidden;font-size:0;line-height:0;
+		}
+	}
+.focus-edit{
+	position: relative;
+	.bulk_movie-area{
+		margin-top: 15px;
+	}
+	img{
+		height: 180px;
+		width: 100%;
+	}
+	ul{
+		margin-top: 20px;	
+	}
+	li{
+		position: relative;
+		font-size: 14px;
+		height: 16px;
+		line-height: 16px;
+		overflow: hidden;
+		color: #7d7d7d;
+		margin-bottom: 20px;
+		a{
+			padding-left: 25px;
+		}
+	}
+	.dian{
+		position: absolute;
+		left: 7px;
+		margin-top: 7px;
+		width: 7px;
+		height: 7px;
+		background: #7d7d7d;
+		overflow: hidden;
+	}
+}
+.movie-codes,.tv-codes,.cartoon-codes{
+	margin: 0 auto;
+	.movie-dl{
+	margin-left: 10px;
+	//border-bottom: 1px dotted #d4d9de;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	.movie-type{
+		position: relative;
+		height: 120px;
+		border-bottom: 1px dotted #d4d9de;
+	}
+	.movie-area{
+		position: relative;
+		height: 60px;
+		border-bottom: 1px dotted #d4d9de;
+	}
+	.movie-year{
+		position: relative;
+		height: 60px;
+		border-bottom: 1px dotted #d4d9de;
+	}
+	.movie-actor{
+		position: relative;
+		height: 60px;
+		border-bottom: 1px dotted #d4d9de;
+	}
+	.dt-title{
+		font-size: 16px;
+	}
+	ul{
+		margin-top: 10px;
+	}
+	li{
+		width: 20%;
+		float: left;
+		height: 30px;
+		line-height: 16px;
+		font-size: 14px;
+		}
+	}
+}
+.variety-codes{
+	height: 520px;
+	.bulk_movie-area{
+		margin-top: 15px;
+		margin-bottom: 5px;
+	}
+	.variety-dl{
+		a{
+		width: 33%;
+		font-size: 14px;
+		height: 28px;
+		line-height: 30px;
+		overflow: hidden;
+		float: left;
+		}
+	}
+}
