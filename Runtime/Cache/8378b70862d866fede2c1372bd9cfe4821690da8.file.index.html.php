@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2016-04-18 00:34:08
+<?php /* Smarty version Smarty-3.1.6, created on 2016-04-18 21:55:56
          compiled from "./Application/Home/View\Index\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:25168570db381b21100-19913527%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8378b70862d866fede2c1372bd9cfe4821690da8' => 
     array (
       0 => './Application/Home/View\\Index\\index.html',
-      1 => 1460910838,
+      1 => 1460987638,
       2 => 'file',
     ),
   ),
@@ -72,18 +72,17 @@ home.js"></script>
 </div>
 <!--导航-->
 <div class="row nav-wrap">
-<nav class="navbar navbar-default">
-<ul class="nav navbar-nav">
-<li><a href="#">首页</a></li>
+<div class="navbar">
+<ul class="nav-ul">
+<li><a class="nav-lock" href="#">首页</a></li>
 <li><a href="#">电影</a></li>
 <li><a href="#">电视剧</a></li>
 <li><a href="#">动漫</a></li>
 <li><a href="#">综艺节目</a></li>
 <li><a href="#">微视屏</a></li>
-</nav>
-
+</ul>
 </div>
-
+</div>
 <div class="container">
 <!--内容-->
 <div class="row wrap">
@@ -122,43 +121,39 @@ home.js"></script>
 </div>
 <!--今日热点-->
 <div class="row hot-pints">
-    <div class="hot-title" flag="ans_热点标题">
-     <h2><strong>本月热点</strong></h2>
-    </div>
+      <div class="left-title" flag="右侧标题">
+      <i class="hx"></i>
+      <div class="h2">热点资讯</div>
+      </div>
 <!--今日热点左侧-->
     <div class="col-md-6">
         <div class="hot-pic" flag="ans_热点动画图">
-            <div id="myCarousel1" class="carousel slide">
-             <!-- 轮播（Carousel）指标 -->
-             <ol class="carousel-indicators">
-                <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel1" data-slide-to="1"></li>
-                <li data-target="#myCarousel1" data-slide-to="2"></li>
-             </ol>   
-             <!-- 轮播（Carousel）项目 -->
-             <div class="carousel-inner">
-                <div class="item active">
-                   <img src="<?php echo @H_IMG;?>
-hot_1.jpg" alt="First slide">
-                   <div class="carousel-caption">标题要很长很长很长1</div>
-                </div>
-                <div class="item">
-                   <img src="<?php echo @H_IMG;?>
-hot_2.jpg" alt="Second slide">
-                   <div class="carousel-caption">标题要很长很长很长1</div>
-                </div>
-                <div class="item">
-                   <img src="<?php echo @H_IMG;?>
-hot_3.jpg" alt="Third slide">
-                   <div class="carousel-caption">标题要很长很长很长1</div>
-                </div>
-             </div>
-             <!-- 轮播（Carousel）导航 -->
-             <a class="carousel-control left" href="#myCarousel1" 
-                data-slide="prev">&lsaquo;</a>
-             <a class="carousel-control right" href="#myCarousel1" 
-                data-slide="next">&rsaquo;</a>
-            </div> 
+            <div class="turn-hot">
+             <ul>
+                <li class="hot-click hot-active">
+                <span></span>
+                </li>
+                <li class="hot-click">
+                <span></span>
+                </li>
+                <li class="hot-click">
+                <span></span>
+                </li>
+            </ul>
+            </div>
+
+            <div class="hot-img">
+                <a class="hot-a" href="#" style="display:block;"><img src="<?php echo @H_IMG;?>
+1001.jpg" alt="" class="img-responsive"><span class="a_name" >热点名字1</span>
+                </a>
+                <a class="hot-a" href="#" style="display:none;"><img src="<?php echo @H_IMG;?>
+1002.jpg" alt=" " class="img-responsive"><span class="a_name" >热点名字1</span>
+                </a>
+                <a class="hot-a" href="#" style="display:none;"><img src="<?php echo @H_IMG;?>
+1003.jpg" alt=" " class="img-responsive"><span class="a_name" >热点名字1</span>
+                </a>
+            </div>
+            
 
         </div>
         <div class="row">

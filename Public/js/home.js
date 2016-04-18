@@ -1,95 +1,91 @@
 $(function($){
       var list=0,inter=0;
-      var move_lick=0,old_pic;
+      var move_lick=0,old_pic,pic_lock;
+      var hot_lick=0,old_hot,hot_lock;
       $("#ranking-table a").click(function(){
             $(".list-on").removeClass("list-on");;
             $(this).addClass('list-on');
-            var ret_a=$("#ranking-table a");
             var ret_ul=$("#ranking-top ul");
-
-            for(var i=0;i<ret_a.length;i++)
-            {
-              if($(this)[0].innerHTML==ret_a[i].innerHTML){
                 for(var p=0;p<ret_ul.length;p++)
                 {
+                  if(p==$(this).index())
+                  {
                   $(ret_ul[p]).css({
-                   "display":"none"});
-                }
-                $(ret_ul[i]).css({
-                  "display":"block"});
-              }
+                   "display":"block"});
+                  }else{
+                    $(ret_ul[p]).css({
+                    "display":"none"});
+                  }
+                }   
+            });
 
-            }
-      })
-
-            $("#site-table a").click(function(){
+        $("#site-table a").click(function(){
             $(".site-on").removeClass("site-on");;
             $(this).addClass('site-on');
-            var ret_a=$("#site-table a");
             var ret_ul=$("#site-top ul");
 
-            for(var i=0;i<ret_a.length;i++)
-            {
-              if($(this)[0].innerHTML==ret_a[i].innerHTML){
-                for(var p=0;p<ret_ul.length;p++)
+            for(var p=0;p<ret_ul.length;p++)
                 {
+                  if(p==$(this).index())
+                  {
                   $(ret_ul[p]).css({
-                   "display":"none"});
-                }
-                $(ret_ul[i]).css({
-                  "display":"block"});
-              }
+                   "display":"block"});
+                  }else{
+                    $(ret_ul[p]).css({
+                    "display":"none"});
+                  }
+                }  
+      });
 
-            }
-      })
+      $(".navbar a").mousemove(function() {
+         $(".nav-lock").removeClass("nav-lock");
+         $(this).addClass("nav-lock")
+      });
+      $(".navbar a").mouseout(function() {
+         $(".nav-lock").removeClass("nav-lock");
+         $($(".navbar li")[0]).addClass("nav-lock");
+      });
 
-      function move_margin(name){
-        var mix=0.1;
-        var val=$(name).css("marginTop").replace('px', '');
-        var cty=$(name).css("opacity");
-        $(name).css({"border":"solid 2px #FFF"});
-        if(parseInt(val)!=-15){
-          val=parseInt(val)-1;
-          $(name).css({"margin-top":val});     
-        }
-        if(cty<1){
-          cty=parseFloat(cty)+parseFloat(mix);
-          $(name).css({"opacity":cty});
-        }
-        if(cty<1||parseInt(val)!=-15)
-        {
-          console.log(name);
-         move_id = setTimeout(function(){return move_margin(name)},150)
-        }
-      }
-
-      function moveout_margin(name){
-        console.log($(name).index());
-        var cty;
-        var mix=0.1;
-        var val=$(name).css("marginTop").replace('px', '');
-        var cty=$(name).css("opacity");
-        //$(name).css({"border":"solid 2px #333"});
-      }
       $(".turn-click").mousemove(function(){
         var name=this;
-        var d = 2000;
-        var p = 2000;
         if(move_lick!=name||move_lick==0)
         {
           old_pic=$(".active")
-          console.log("在这里");
           if(old_pic){
           $(old_pic).removeClass("active");
           $(name).addClass('active')
-          inter=0;          
+          inter=0;
+          pic_lock=1;
           }
         }
         move_lick=name;
         });
+
+      $(".hot-click").mousemove(function(){
+        var name=this;
+        if(hot_lick!=name||hot_lick==0)
+        {
+          old_hot=$(".hot-active")
+          if(old_hot){
+          $(old_hot).removeClass("hot-active");
+          $(name).addClass('hot-active')
+          hot_lock=1;
+          inter=0;
+          $(name).css({"border": "solid 2px #6CCDEE","background-color":"#FFF","opacity":"1"});        
+          }
+        }
+        hot_lick=name;
+        });
+
     setInterval(function(){
+    if(hot_lock==1){
+      hot_lock=0;
+      this.hot_lock=0;
+    }
     var elem=$(".active");  //获取轮播标识
-    var pic_id=$(elem).index();
+    var hot_elem=$(".hot-active");
+    var pic_id = $(elem).index();
+    var hot_id= $(hot_elem).index();
     var mar_px=$(elem).css("marginTop").replace('px', '');
     var cty=$(elem).css("opacity");
     //下面开始动画
@@ -97,26 +93,63 @@ $(function($){
       $(elem).css({"border": "solid 2px #FFF"});
       mar_px=parseInt(mar_px)-3;
       $(elem).css({"margin-top":mar_px});
+      this.lock=1;
     }
     if(cty<1){
      cty=parseFloat(cty)+0.1;
      $(elem).css({"opacity":cty});
     }
+
     var pic_ids=$(".turn-click");
+    var hot_ids=$(".hot-click");
     list=pic_id+1;
+    var hot_list=hot_id+1;
+
     if(pic_ids.length==list){
       list=0;
     }
+    if(hot_ids.length==hot_list){hot_list=0}
     if(inter>50)
     { //运行30次后换图片
       inter=0;
       $(elem).removeClass("active");
       $(pic_ids[list]).addClass("active");
+      $(hot_elem).removeClass('hot-active');
+      $(hot_ids[hot_list]).addClass('hot-active');
       elem=$(".active"); //换图后重新获取 重要
+      hot_elem=$(".hot-active");
+      this.hot_lock=0;
+      var pic_id = $(elem).index();
+      var hot_id= $(hot_elem).index();
     }
     inter++;
-    for(var i=0;i<pic_ids.length;i++)
+ 
+    if(this.hot_lock!=1){
+    this.hot_lock=1;
+    $(hot_elem).css({"border": "solid 2px #6CCDEE","background-color":"#FFF","opacity":"1"});
+    for(var i=0;i<hot_ids.length;i++)
     {   //逆转动画 非active 标识的全部持行
+      if(hot_ids[i]!=hot_elem[0])
+      {
+          $(hot_ids[i]).css({"background-color":"#888888","border":"solid 2px #FFF","opacity":"0.5"});
+      }
+    }
+    var hot_img=$(".hot-a");
+    for(var p=0;p<hot_img.length;p++)
+    {
+      if(hot_id==p){
+        $(hot_img[p]).css({"display":"block"});
+      }else{
+        $(hot_img[p]).css({"display":"none"})
+      }
+    }
+
+    }
+    //换背景图 
+    if(this.lock==1){
+      this.lock=0;
+       for(var i=0;i<pic_ids.length;i++)
+      {   //逆转动画 非active 标识的全部持行
       if(pic_ids[i]!=elem[0])
       {
         var old_px=$(pic_ids[i]).css("marginTop").replace('px', '');
@@ -134,9 +167,9 @@ $(function($){
       }
     }
 
-    //换背景图 
     if(parseInt(mar_px)==-15){
     var bg_img=$(".trun-a");
+    this.lock=0;
     for(var p=0;p<bg_img.length;p++)
     {
       if(pic_id==p){
@@ -146,7 +179,8 @@ $(function($){
       }
     }
     }
+  }
 
-    },100)
+    },100);
 
 });

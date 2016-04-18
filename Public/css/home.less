@@ -125,31 +125,106 @@ a:hover{color:red}
 	}
 }
 //导航区
-.navbar{
+.nav-wrap{
+	position: relative;
 	height: 50px;
-	background-color:#211F3B;
-	color:#FFF;
-	ul{
-		font-size: 20px;
-		margin-left: 140px;
+	background-color: #B4A2B4;
+	.navbar{
+		position: absolute;
+		height: 50px;
+		width: 55%;
+		margin-left: 142px;
+		background-color: #B4A2B4;
+		ul{
+			position: relative;
+			li{
+				width: 16.6%;
+				float: left;
+			}
+			a{
+				display: block;
+				text-align: center;
+				line-height: 49px;
+				font-size: 20px;
+				color:#FFF;
+			}
+			a,a:hover, a:visited,a:focus,a:active {
+    		outline: 0;
+			}
+			a:link{text-decoration:none;color:#FFF}
+			.nav-lock{
+				background-color: #6CCDEE;
+				padding-top: 8px;
+				margin-top: -8px;
+			}
+		}
+
 	}
-	li{
-		padding-left: 30px;
-		padding-right: 30px;
-	}
+
 }
 //导航区结束
+.container{
+	margin-top: 15px;
+}
 .left-wrap{
 
 }
 .right-wrap{
 	background-color: #FFF;
 }
+
+//左侧title
+.left-title{
+	height: 70px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: -1px;
+	margin-left: 15px;
+	margin-right: 15px;
+	.h2{
+		position: absolute;
+		font-family: "\5FAE\8F6F\96C5\9ED1",Arial,sans-serif;
+		height: 32px;
+		bottom: 0;
+		line-height: 35px;
+		color: #2d3e50;
+		font-size: 24px;
+		padding-right: 20px;
+		color:#2D3E50;
+		text-align: center;
+		background-color: #EDEDED; //设置背景后可以覆盖其他元素
+	}
+	a{
+		line-height: 25px;
+	}
+	.left-a{
+		right: 0px;
+		top:22px;
+		position: absolute;
+		font-size: 15px;
+		background-color: #6BCDED;
+		color:#FFF;
+		border-radius: 14px;
+		padding-right: 12px;
+		text-indent: 12px;
+	}
+	.left-a:hover{
+		color:#6BCDED;
+		background-color:#2D3E50;
+	}
+	.hx{
+		width: 100%;height: 2px;left: 0;
+		bottom: 22px;position: absolute;
+		background-color: #B4A2B4;
+		text-indent:-999em;text-align:left;
+		overflow:hidden;font-size:0;line-height:0;
+		}
+	}
 //轮播图片区
 .turn-pic{
  margin: 0 auto;
- height: 350px;
- width: 845px;
+ height: 400px;
+ width: 100%;
  position: relative;
  overflow: hidden;
 
@@ -182,25 +257,68 @@ a:hover{color:red}
 		display: block;
 		margin: 0 auto;
  		img{
- 			height: 100%;
+ 			height: 400px;
  			width: 100%;
  		}
  	}
 }
 //轮播图片结束
-
-.ranking-list{
-	height: 378px;
-}
-
 .hot-pints{
-	.hot-title{
-		height: 50px;
+	height: 497px;
+	position: relative;
+	margin-top: 1px;
+	.left-title{
+		margin-bottom: 20px;
 	}
 	.hot-pic{
 		height: 240px;
 		width: 438px;
-
+		position: relative;
+ 		overflow: hidden;
+ 		margin: 0 auto;
+		.turn-hot{
+			position: absolute;
+			bottom: 25px;
+	 		padding-top: 10px;
+	 		right: 10px;
+			z-index: 1;
+			.hot-click{
+			 		position: relative;
+					display: block;
+					float: left;
+					margin-left: 5px;
+			 		height: 15px;
+			 		width: 20px;
+			 		z-index: 1;
+			 		border: solid 1px #FFF;
+			 		overflow: hidden;
+			 		cursor: pointer;
+			 		opacity: 0.4;
+			 		background-color: #888;
+					}
+		}
+		.hot-a{
+ 				position: absolute;
+				display: block;
+				margin: 0 auto;
+ 					img{
+ 					height: 240px;
+ 					width: 100%;
+ 					}
+ 				}
+			 .a_name{
+				z-index: 2;
+				position: absolute;
+				left: 0px;
+				bottom: 0px;
+				height: 22px;
+				line-height: 22px;
+				width: 100%;
+				background-color: #000;
+				background: rgba(0,0,0,0.6);
+				color: #fff;
+				text-align: center;
+ 			}
 	}
 	.hot-bot-pic{
 		height: 120px;
@@ -328,6 +446,7 @@ a:hover{color:red}
 	background-color: #fff;
 	color: #2a3b4b;
 	padding-top: 28px;
+	height: 450px;
 	.table-list{
 		position:relative;
 		margin: 0 auto;
@@ -360,7 +479,7 @@ a:hover{color:red}
 		}
 		.table-ul{
 			font-size: 15px;
-			padding-top: 15px;
+			padding-top: 25px;
 			padding-left: 15px;
 			.right-show{
 					float: right;
@@ -373,7 +492,7 @@ a:hover{color:red}
 				line-height: 16px;
 				overflow: hidden;
 				color: #7d7d7d;
-				margin-bottom: 15px;
+				margin-bottom: 17px;
 				font-size: 14px;
 				a{
 					color: #7d7d7d;
@@ -401,7 +520,7 @@ a:hover{color:red}
 	margin-top: -40px;
 	height: 50px;
 	background-color: #fff;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 }
 .right-title{
 	height: 60px;
@@ -440,11 +559,14 @@ a:hover{color:red}
 	.hx{
 		width: 100%;height: 2px;left: 0;
 		bottom: 22px;position: absolute;
-		background-color: #6ccdee;
+		background-color: #AC9BAC;
 		text-indent:-999em;text-align:left;
 		overflow:hidden;font-size:0;line-height:0;
 		}
 	}
+.focus{
+	margin-top: -35px;
+}
 .focus-edit{
 	position: relative;
 	.bulk_movie-area{
