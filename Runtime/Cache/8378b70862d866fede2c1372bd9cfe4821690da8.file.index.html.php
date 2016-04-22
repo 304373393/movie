@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2016-04-18 21:55:56
+<?php /* Smarty version Smarty-3.1.6, created on 2016-04-22 16:47:55
          compiled from "./Application/Home/View\Index\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:25168570db381b21100-19913527%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8378b70862d866fede2c1372bd9cfe4821690da8' => 
     array (
       0 => './Application/Home/View\\Index\\index.html',
-      1 => 1460987638,
+      1 => 1461314872,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <html>
 <head>
    <title>添加影视</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <link href="<?php echo @A_CSS;?>
 bootstrap.min.css" rel="stylesheet">
@@ -160,7 +159,7 @@ home.js"></script>
         <div class="hot-bot-pic" flag="ans_热点小图">
         <a href="#" class="bulk"><img src="<?php echo @H_IMG;?>
 3.jpg" alt="" class="img-responsive">
-                <span class="hot_name" >热点名字大在在在在在在在在大大</span><span class="bg-img"></span><i class="ico"></i></a>
+                <span class="hot_name" >热点名字大在\在在在在在在在大大</span><span class="bg-img"></span><i class="ico"></i></a>
         </div>
 
         <div class="hot-bot-pic bot-pic1" flag="ans_热点小图">
@@ -206,364 +205,421 @@ home.js"></script>
 </div> <!--end hot-pints-->
 
 <div class="row movie-area" flag="ans_电影区域">
-
+      
       <div class="movie-title" flag="ans_电影标题">
-        <div class="col-md-2 tt">
-        <a href="#">电影</a>
+      <div class="left-title">
+      <i class="hx"></i>
+      <div class="h2">电影</div>
+        <ul>
+            <li >
+              <a href="#" class="on">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+        </ul>
+        <div class="more">
+          <a href="#">更多</a>
         </div>
-        <div class="col-md-6 area-list">
-        <a href="#" class="on">热门</a>
-        <a href="#">喜剧</a>
-        <a href="#">动作</a> 
-        <a href="#">剧情</a>
-        <a href="#">爱情</a>
-        <a href="#">战争</a>
-        <a href="#">恐惧</a>
-        </div>
-        <div class="col-md-2 gd">
-        <a href="#">更多</a>
-        </div>
       </div>
-
-      <div class="col-md-3" flag="ans_电影列表1">
-          <div class="movie-pic">
-            <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-2.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电影名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="movie-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-2.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电影名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
       </div>
-      <div class="col-md-3" flag="ans_电影列表2">
-          <div class="movie-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-2.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电影名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="movie-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-2.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电影名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-      <div class="col-md-3" flag="ans_电影列表3">
-          <div class="movie-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-2.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电影名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="movie-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-2.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电影名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-      <div class="col-md-3" flag="ans_电影列表4">
-          <div class="movie-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-2.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电影名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="movie-pic">
-            <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-2.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电影名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
+       <div class="movie-dec" flag="ans_电影列表">
+          <div class="movie-list">
+              <ul class="movie-on" style="display:block;">
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+                <li>
+                  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+2.jpg" alt="" class="img-responsive"><span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                  <a href="#" class="tt_name">电影名字</a>
+                  <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                </li>
+             </ul>
+          </div>     
+      </div>   
 </div> <!-- edn movie-area-->
 
 <div class="row tv-area" flag="ans_电视区域">
 
-      <div class="tv-title" flag="ans_视标题">
-
+      <div class="tv-title" flag="ans_电影标题">
+      <div class="left-title">
+      <i class="hx"></i>
+      <div class="h2">电视</div>
+        <ul>
+            <li >
+              <a href="#" class="on">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+        </ul>
+        <div class="more">
+          <a href="#">更多</a>
+        </div>
       </div>
-      <div class="col-md-3" flag="ans_电视列表1">
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+      </div>
+      <div class="tv-dec">
+          <div class="tv-list">
+              <ul class="tv-on" style="display: block;">
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          </div>
-      <div class="col-md-3" flag="ans_电视列表2">
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          </div>
-      <div class="col-md-3" flag="ans_电视列表3">
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          </div>
-      <div class="col-md-3" flag="ans_电视列表4">
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="tv-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 4.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">电视名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">电视名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+              </ul>
           </div>
       </div>
-
 </div> <!-- edn tv-area-->
-
-<div class="row cartoon-area" flag="ans_动漫区域">
-
-      <div class="cartoon-title" flag="ans_动漫标题">
-
-      </div>
-      <div class="col-md-3" flag="ans_动漫列表1">
-          <div class="cartoon-pic">
-            <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-6.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">动漫名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="cartoon-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-6.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">动漫名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-      <div class="col-md-3" flag="ans_动漫列表2">
-          <div class="cartoon-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-6.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">动漫名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="cartoon-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-6.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">动漫名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-      <div class="col-md-3" flag="ans_动漫列表3">
-          <div class="cartoon-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-6.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">动漫名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="cartoon-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-6.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">动漫名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-      <div class="col-md-3" flag="ans_动漫列表4">
-          <div class="cartoon-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-6.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">动漫名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="cartoon-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-6.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">动漫名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-</div> <!-- edn cartoon-area-->
 
 <div class="row variety-area" flag="ans_综艺区域">
 
       <div class="variety-title" flag="ans_综艺标题">
+      <div class="left-title">
+      <i class="hx"></i>
+      <div class="h2">综艺节目</div>
+        <ul>
+            <li >
+              <a href="#" class="on">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+        </ul>
+        <div class="more">
+          <a href="#">更多</a>
+        </div>
+      </div>
+      </div>
 
-      </div>
-      <div class="col-md-3" flag="ans_综艺列表1">
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+      <div class="variety-dec">
+          <div class="variety-list">
+              <ul class="variety-on" style="display: block;">
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-                    <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-      <div class="col-md-3" flag="ans_综艺列表2">
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-      <div class="col-md-3" flag="ans_综艺列表3">
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-                    <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
-      <div class="col-md-3" flag="ans_综艺列表4">
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-          <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-            <div class="variety-pic">
-          <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-7.jpg" alt="" class="img-responsive">
-            <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
-            <a href="#" class="tt_name">综艺名字</a>
-            <span class="actor_name"style="color:#7D7D8D">主演名字</span>
-          </div>
-      </div>
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">综艺名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                </ul>
+            </div>
+        </div>
+
 </div> <!-- edn variety-area-->
 
-<div class="row topic" flag="ans_底部话题"> 
+<div class="row cartoon-area" flag="ans_动漫区域">
 
-</div> <!--end topic-->
+      <div class="cartoon-title" flag="ans_动漫标题">
+      <div class="left-title">
+      <i class="hx"></i>
+      <div class="h2">动漫</div>
+        <ul>
+            <li >
+              <a href="#" class="on">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+            <li>
+              <a href="#">热门</a>
+            </li>
+        </ul>
+        <div class="more">
+          <a href="#">更多</a>
+        </div>
+      </div>
+      </div>
+
+      <div class="cartoon-dec">
+          <div class="cartoon-list">
+              <ul class="cartoon-on" style="display: block;">
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+                  <li>
+                      <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+6.jpg" alt="" class="img-responsive">
+                      <span class="tv_name" ></span><span class="bg-img"></span><i class="ico"></i></a>
+                      <a href="#" class="tt_name">动漫名字</a>
+                      <span class="actor_name"style="color:#7D7D8D">主演名字</span>
+                  </li>
+              </ul>
+          </div>
+      </div>  
+</div> <!-- edn cartoon-area-->
 
 </div> <!--end left-wrap-->
 
@@ -779,6 +835,14 @@ home.js"></script>
 8.jpg" alt="" class="img-responsive">
   <span class="hot_name" >小学生大战外星人</span><span class="bg-img"></span><i class="ico"></i></a>
   <ul class="focus-ul">
+  <li>
+    <i class="dian"></i>
+    <a href="#">大学生初次开房跑路 嫌对方太专业</a>
+  </li>
+  <li>
+    <i class="dian"></i>
+    <a href="#">大学生初次开房跑路 嫌对方太专业</a>
+  </li>
   <li>
     <i class="dian"></i>
     <a href="#">大学生初次开房跑路 嫌对方太专业</a>
@@ -1133,23 +1197,7 @@ home.js"></script>
 8.jpg" alt="" class="img-responsive">
   <span class="hot_name" >小学生大战外星人</span><span class="bg-img"></span><i class="ico"></i></a>
 
-  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-8.jpg" alt="" class="img-responsive">
-  <span class="hot_name" >小学生大战外星人</span><span class="bg-img"></span><i class="ico"></i></a>
-
-  <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
-8.jpg" alt="" class="img-responsive">
-  <span class="hot_name" >小学生大战外星人</span><span class="bg-img"></span><i class="ico"></i></a>
-
   <ul class="focus-ul">
-  <li>
-    <i class="dian"></i>
-    <a href="#">大学生初次开房跑路 嫌对方太专业</a>
-  </li>
-  <li>
-    <i class="dian"></i>
-    <a href="#">大学生初次开房跑路 嫌对方太专业</a>
-  </li>
   <li>
     <i class="dian"></i>
     <a href="#">大学生初次开房跑路 嫌对方太专业</a>
@@ -1184,6 +1232,10 @@ home.js"></script>
 8.jpg" alt="" class="img-responsive">
   <span class="hot_name" >小学生大战外星人</span><span class="bg-img"></span><i class="ico"></i></a>
 
+    <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
+8.jpg" alt="" class="img-responsive">
+  <span class="hot_name" >小学生大战外星人</span><span class="bg-img"></span><i class="ico"></i></a>
+
   <a href="#" class="bulk_movie-area"><img src="<?php echo @H_IMG;?>
 8.jpg" alt="" class="img-responsive">
   <span class="hot_name" >小学生大战外星人</span><span class="bg-img"></span><i class="ico"></i></a>
@@ -1212,7 +1264,7 @@ home.js"></script>
 
 </div><!--end variety-codes-->
 
-<div class=" row tv-codes">
+<div class=" row cartoon-codes">
   <div class="right-title" flag="右侧标题">
   <i class="hx"></i>
   <div class="h3">动漫分类</div>
@@ -1313,7 +1365,13 @@ home.js"></script>
 
 
 
-</div>
+</div><!--结束右侧栏目-->
+
+</div><!--结束左铡跟右侧栏目-->
+
+<div class="row topic" flag="ans_底部话题"> 
+
+</div> <!--end topic-->
 
 </div> <!--end <div class="container">-->
 </body>

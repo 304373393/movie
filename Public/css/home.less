@@ -34,7 +34,7 @@ a:hover{color:red}
 .tv_name{ //图片渐变效果
        z-index:2; position:absolute; 
        bottom:0; left:0; width:100%; 
-       height:30px;
+       height:29px;
        background-image:url(http://www.movie.com/Public/IMG/bg.png);
 	   background-color: transparent;
 	   background-repeat:repeat-x;
@@ -219,6 +219,39 @@ a:hover{color:red}
 		text-indent:-999em;text-align:left;
 		overflow:hidden;font-size:0;line-height:0;
 		}
+	ul{
+		position: absolute;
+		top: 33px;
+		right: 100px;
+		padding-left: 15px;
+		background-color: #EDEDED;
+		li{
+			
+			float: left;
+			padding-right: 15px;
+		    font-size: 16px;
+		    a{
+		    	padding-right: 15px;
+		    	display: block;
+				color:#333;
+				text-indent: 10px;
+		    }
+		}
+		.on{
+			background-color: #6CCDEE;
+			color:#FFF;
+		}		
+	}
+	.more{
+		position: absolute;
+		right: 0px;
+		top: 33px;
+		font-size: 16px;
+		padding-left: 10px;
+		background-color: #6CCDEE;
+		color:#FFF;
+		padding-right: 10px;
+	}
 	}
 //轮播图片区
 .turn-pic{
@@ -264,6 +297,7 @@ a:hover{color:red}
 }
 //轮播图片结束
 .hot-pints{
+	overflow: hidden;
 	height: 497px;
 	position: relative;
 	margin-top: 1px;
@@ -354,87 +388,117 @@ a:hover{color:red}
 
 }
 .movie-area{
-	.movie-title{
-		margin-top: 20px;
-		height: 40px;
-		.area-list{
-			margin-top: 5px;
-			a{
-				margin-left: 10px;
-				font-size: 20px;
+	overflow: hidden;
+	.movie-list{
+		position: relative;
+		margin: 0 auto;
+		height: 950px;
+		background-color: #EDEDED;
+		ul{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			li{
+			float: left;
+			margin-left: 14px;
+			margin-right: 2px;
+			margin-top: 20px;
+			background-color: #FFF;
+			height: 290px;
+		    img{
+			height: 240px;
+			width: 200px;
 			}
 		}
-		.tt{
-			margin-top: -5px;
-			font-size: 30px;
-		}
-		.gd{
-			margin-top: 5px;
-			font-size: 20px;
-		}
-	}
-	.movie-pic{
-		position: relative;
-		height: 310px;
-		margin-top: 20px;
-		background-color: #FFF;
-		    img{
-			height: 260px;
-			width: 190px;
 		}
 	}
 }
 
 .tv-area{
-	.tv-title{
-		height: 50px;
-		border: solid 1px blue;
-			}
-	.tv-pic{
+	overflow: hidden;
+	.tv-list{
+		height: 874px;
 		position: relative;
-		height: 250px;
-		width: 200px;
-		margin-top: 20px;
-        background-color: #fff;
-		img{
-			height: 150px;
-			width: 200px;
+		background-color: #EDEDED;
+		margin: 0 auto;
+		ul{
+		  height: 100%;
+		  width: 100%;
+		  position: absolute;
+			li{
+
+				float: left;
+				margin-left: 14px;
+				margin-right: 2px;
+				height: 265px;
+				width: 200px;
+				margin-top: 20px;
+		        background-color: #fff;
+				img{
+				height: 150px;
+				width: 200px;
+						}
+					}
 			}
 		}
 }
 .cartoon-area{
-	.cartoon-title{
-		height: 50px;
-		border: solid 1px blue;
-	}
-	.cartoon-pic{
+	overflow: hidden;
+	.cartoon-list
+	{
 		position: relative;
-		height: 300px;
-		width: 200px;
-		margin-top: 20px;
-		background-color: #FFF;
-		img{
-			height: 250px;
-			width: 200px;
-		}
+		margin: 0 auto;
+		height: 750px;
+			ul{
+				position: absolute;
+				margin: 0 auto;
+				height: 100%;
+				width: 100%;
+				li{
+					float: left;
+					margin-top: 20px;
+					margin-left: 14px;
+					margin-right: 4px;
+					background-color: #fff;
+					width: 270px;
+					height: 220px;
+				}
+				img{
+					height: 170px;
+					width: 270px;
+				}
+			}
+
 	}
 }
 
 .variety-area{
-	.variety-title{
-		height: 50px;
-		border: solid 1px blue;
-	}
-	.variety-pic{
+	overflow: hidden;
+	.variety-list
+	{
 		position: relative;
-		height: 200px;
-		margin-top: 20px;
-		width: 200px;
-		background-color: #FFF;
-		img{
-			height: 150px;
-			width: 200px;
-		}
+		margin: 0 auto;
+		height: 730px;
+			ul{
+				position: absolute;
+				margin: 0 auto;
+				height: 100%;
+				width: 100%;
+				li{
+					float: left;
+					margin-top: 20px;
+					margin-left: 14px;
+					margin-right: 4px;
+					background-color: #fff;
+					width: 270px;
+					height: 220px;
+				}
+				img{
+					height: 170px;
+					width: 270px;
+				}
+			}
+
 	}
 }
 .topic{
@@ -566,6 +630,10 @@ a:hover{color:red}
 	}
 .focus{
 	margin-top: -35px;
+	height: 543px;
+}
+.funny-focus{
+	height: 466px;
 }
 .focus-edit{
 	position: relative;
@@ -643,8 +711,11 @@ a:hover{color:red}
 		}
 	}
 }
+.cartoon-codes{
+	height: 770px;
+}
 .variety-codes{
-	height: 520px;
+	height: 810px;
 	.bulk_movie-area{
 		margin-top: 15px;
 		margin-bottom: 5px;
